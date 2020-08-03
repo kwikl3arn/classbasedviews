@@ -5,19 +5,15 @@ from django.views.generic import (View, TemplateView,
                                   ListView, DetailView,
                                   CreateView, DeleteView,
                                   UpdateView)
-from basic_app.models import School,Student
+from basic_app.models import School, Student
 
 
-# Create your views here.
-
-# Original Function View:
-#
+#  Function View:
 # def index(request):
 #     return render(request,'index.html')
-#
-#
 
-# Pretty simple right?
+
+# class function view
 class IndexView(TemplateView):
     # Just set this Class Object Attribute to the template page.
     # template_name = 'app_name/site.html'
@@ -48,7 +44,10 @@ class SchoolDetailView(DetailView):
 
 
 class SchoolCreateView(CreateView):
+    # specify fields that you want to show from models
     fields = ("name", "principal", "location")
+    # if you want to show all fields from models,use below one
+    # fields = "__all__"
     model = School
 
 
